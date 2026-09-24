@@ -3,11 +3,11 @@ import pandas as pd
 import sqlite3
 from datetime import date
 from google import genai
-import os
+import os # Fornisce funzioni per interagire con il sistema operativo sottostante
 from gtts import gTTS
 
 # --- CONFIGURAZIONE DATABASE ---
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__)) # il percorso assoluto della cartella che contiene lo script in esecuzione
 DB_NAME = os.path.join(BASE_DIR, "vocaboli_salvati.db")
 
 def init_db():
