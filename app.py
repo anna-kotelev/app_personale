@@ -7,7 +7,8 @@ import os
 from gtts import gTTS
 
 # --- CONFIGURAZIONE DATABASE ---
-DB_NAME = "vocaboli_salvati.db"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_NAME = os.path.join(BASE_DIR, "vocaboli_salvati.db")
 
 def init_db():
     """Crea la tabella per i vocaboli con i campi per il quiz, lo streak e lo stato."""

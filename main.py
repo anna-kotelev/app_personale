@@ -3,6 +3,14 @@ from pydantic import BaseModel
 import sqlite3
 from typing import Optional, List
 
+import os
+
+# Trova la cartella esatta in cui si trova questo script
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Crea un percorso assoluto e univoco per il file SQLite
+DB_NAME = os.path.join(BASE_DIR, "vocaboli_salvati.db")
+
 # Inizializziamo l'applicazione FastAPI
 app = FastAPI(
     title="Vocaboli API per Agenti IA",
