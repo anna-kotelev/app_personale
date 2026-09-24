@@ -11,6 +11,28 @@ app = FastAPI(
 
 DB_NAME = "vocaboli_salvati.db"
 
+# --- FUNZIONE PER INIZIALIZZARE IL DB ---
+def init_db():
+    """Crea la tabella vocaboli se non esiste ancora per evitare crash."""
+    conn = sqlite3.connect(DB_NAME)
+    cursor = conn.cursor()
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS vocaboli (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            parola TEXT NOT NULL,
+            traduzione TEXT,
+            data_salvataggio TEXT,
+            imparata INTEGER DEFAULT 0,
+            streak INTEGER DEFAULT 0,
+            UNIQUE(parola)
+        )
+    """)
+    conn.commit()
+    conn.close()
+
+# Eseguiamo la creazione della tabella all'avvio del server
+init_db()
+
 # --- SCHEMI DATI (Pydantic) ---
 # Definiamo la struttura esatta dei dati in entrata e uscita (JSON Validation)
 class VocaboloCreate(BaseModel):
