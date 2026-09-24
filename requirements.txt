@@ -1,0 +1,8 @@
+streamlit
+pandas
+google-genai
+gTTS
+requests
+fastapi
+uvicorn
+pydantic
