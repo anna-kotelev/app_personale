@@ -1,0 +1,18 @@
+# --- SEGRETI E CREDENZIALI ---
+.streamlit/secrets.toml
+.env
+
+# --- DATABASE LOCALE ---
+*.db
+vocaboli_salvati.db
+
+# --- FILE TEMPORANEI E AUDIO GENERATI ---
+*.mp3
+temp_quiz_audio.mp3
+
+# --- FILE DI SISTEMA E PYTHON ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+.vscode/
